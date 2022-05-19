@@ -1,0 +1,184 @@
+<header *ngFor="let localHeader of header" id="header-container" class="container my-5">
+    <div class="nav row g-0 justify-content-between rounded-top">
+        <!-- Logotipo -->
+        <div class="logo col-sm-12 col-lg-auto d-flex align-items-center justify-content-center ps-4">
+            <img src="data:image/png;base64,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"
+                alt="Logo Argentina Programa" width="100em">
+            <h2 class="fw-bold text-uppercase mb-0">Argentina Programa</h2>
+            <div class="icono">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dot"
+                    viewBox="0 0 16 16">
+                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                </svg>
+            </div>
+            <p class="mb-0">#YoProgramo</p>
+        </div>
+        <!-- Enlaces Redes Sociales -->
+        <nav class="menu col-sm-12 col-lg-auto d-flex justify-content-sm-evenly">
+            <a href="https://www.linkedin.com/in/luciano-nahuel-giorgi-419389175"
+                class="c1 px-4 d-flex align-items-center text-center text-white text-decoration-none" target="_blank">
+                <div class="w-100">
+                    <span>LinkedIn</span>
+                    <div class="icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                            class="bi bi-linkedin" viewBox="0 0 16 16">
+                            <path
+                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+            <a href="https://github.com/LucianoNahuelGiorgi"
+                class="c2 px-4 d-flex align-items-center text-center text-white text-decoration-none" target="_blank">
+                <div class="w-100">
+                    <span>GitHub</span>
+                    <div class="icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                            class="bi bi-github" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+            <a (click)="onOpenModal(localHeader, 'login')" *ngIf="!authenticated()"
+                class="c3 px-4 d-flex align-items-center text-center text-white text-decoration-none"
+                style="cursor: pointer;">
+                <div class="w-100">
+                    <span>Ingresar</span>
+                    <div class="icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                            class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+                            <path fill-rule="evenodd"
+                                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+            <a (click)="onOpenModal(localHeader, 'logout')" *ngIf="authenticated()"
+                class="c3 px-4 d-flex align-items-center text-center text-white text-decoration-none"
+                style="cursor: pointer;">
+                <div class="w-100">
+                    <span>Salir</span>
+                    <div class="icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor"
+                            class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
+                            <path fill-rule="evenodd"
+                                d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <!-- Banner -->
+    <div class="row">
+        <!-- Icono editar -->
+        <div class="col">
+            <a *ngIf="authenticated()" (click)="onOpenModal(localHeader, 'edit')" class="align-content-end"
+                style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#edit-modal-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path
+                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                </svg>
+            </a>
+            <div>
+                <img class="d-block w-100" src="{{localHeader?.imageUrl}}" alt="Banner" height="500px">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Login -->
+    <div class="modal fade" id="login-modal-header" role="dialog" tabindex="-1" aria-hidden="true"
+        aria-labelledby="label-modal-1">
+        <!-- Caja de diálogo -->
+        <div class="modal-dialog">
+            <!-- Contenido de la caja -->
+            <div class="modal-content">
+                <!-- Encabezado de la caja -->
+                <div class="modal-header">
+                    <h5 class="modal-title">Ingresar</h5>
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <!-- Cuerpo de la caja -->
+                <form #loginForm="ngForm" (ngSubmit)="onLoginHeader(loginForm)" (ngSubmit)="loginForm.form.value">
+                    <p>
+                        <input type="email" name="email" placeholder="Email" ngModel required>
+                    </p>
+                    <p>
+                        <input type="password" name="password" placeholder="Password" ngModel required>
+                    </p>
+                    <!-- Pie de la caja -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary"
+                            data-bs-dismiss="modal">Aceptar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Logout -->
+    <div class="modal fade" id="logout-modal-header" role="dialog" tabindex="-1" aria-hidden="true"
+        aria-labelledby="label-modal-1">
+        <!-- Caja de diálogo -->
+        <div class="modal-dialog">
+            <!-- Contenido de la caja -->
+            <div class="modal-content">
+                <!-- Encabezado de la caja -->
+                <div class="modal-header">
+                    <h5 class="modal-title">Salir</h5>
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <!-- Cuerpo de la caja -->
+                <form #logoutForm="ngForm" (ngSubmit)="onLogoutHeader()">
+                    <p>Está seguro que quiere cerrar sesión?</p>
+                    <!-- Pie de la caja -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                        <button [disabled]="logoutForm.invalid" type="submit" class="btn btn-primary"
+                            data-bs-dismiss="modal">Aceptar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal editar -->
+    <div class="modal fade" id="edit-modal-header" role="dialog" tabindex="-1" aria-hidden="true"
+        aria-labelledby="edit-modal-header">
+        <!-- Caja de diálogo -->
+        <div class="modal-dialog">
+            <!-- Contenido de la caja -->
+            <div class="modal-content">
+                <!-- Encabezado de la caja -->
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Banner</h5>
+                </div>
+                <!-- Cuerpo de la caja -->
+                <form #updateForm="ngForm">
+                    <input type="hidden" ngModel="{{updateHeader?.id}}" name="id" id="id" class="form-control" />
+                    <div class="modal-body">
+                        <label for="imageUrl">Imagen</label>
+                        <input type="text" class="resumen" ngModel="{{updateHeader?.imageUrl}}" name="imageUrl"
+                            id="imageUrl" />
+                    </div>
+                    <!-- Pie de la caja -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                        <button (click)="onUpdateHeader(updateForm.value)" type="button" class="btn btn-primary"
+                            data-bs-dismiss="modal">Aceptar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>

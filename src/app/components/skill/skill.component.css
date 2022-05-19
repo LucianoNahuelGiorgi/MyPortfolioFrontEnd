@@ -1,0 +1,20 @@
+.habilidad .info .titulo {
+	color: #005385;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 40px;
+	margin-bottom: 30px;
+}
+
+.habilidad .info .label {
+	font-size: 18px;
+	font-weight: 600;
+	color: #005385;
+	margin-bottom: 10px;
+}
+
+.habilidad .info .progreso {
+	background: #005385;
+	border-radius: 0;
+	height: 25px;
+}

@@ -1,0 +1,31 @@
+header .nav {
+	min-height: 80px;
+	overflow: hidden;
+	background: #fff;
+}
+
+header .logo img {
+  margin-right: 1em;
+}
+
+header .logo h2,
+header .logo p {
+	font-size: 16px;
+	display: inline-block;
+}
+
+header .logo .icono {
+	color: #bfbfbf;
+}
+
+header .logo p {
+	color: #777777;	
+}
+
+header .menu .c1 { background: #3da5e2; }
+header .menu .c2 { background: #005385; }
+header .menu .c3 { background: #003855; }
+
+header .menu .c1:hover { background: #1ba0ef; }
+header .menu .c2:hover { background: #00426a; }
+header .menu .c3:hover { background: #002d44; }

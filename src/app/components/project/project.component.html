@@ -1,0 +1,167 @@
+<section class="container" id="project-container">
+    <hr />
+    <div class="row proyecto justify-content-center">
+        <div class="col-sm-auto align-content info">
+            <span class="titulo mx-5">Proyectos</span>
+            <!-- Icono agregar -->
+            <a *ngIf="authenticated()" (click)="onOpenAddModal()" class="align-content-end" style="cursor: pointer;"
+                data-bs-toggle="modal" data-bs-target="#add-modal-project">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="bi bi-plus-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg>
+            </a>
+        </div>
+    </div>
+    <div *ngFor="let localProject of project" class="row proyecto justify-content-center px-4 my-3 mb-5">
+        <!-- Proyectos -->
+        <div class="col-sm-12 col-lg-auto text-center">
+            <img src="{{localProject.imageUrl}}}" alt="" width="100px">
+        </div>
+        <div class="col-sm-12 col-lg-8 info">
+            <!-- Icono editar -->
+            <a *ngIf="authenticated()" (click)="onOpenModal(localProject, 'edit')" class="align-content-end"
+                style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#edit-modal-project">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path
+                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                </svg>
+            </a>
+            <!-- Icono borrar -->
+            <a *ngIf="authenticated()" (click)="onOpenModal(localProject, 'delete')" class="align-content-end"
+                style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#delete-modal-project">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                    <path fill-rule="evenodd"
+                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                </svg>
+            </a>
+            <h3 class="nombre">{{localProject.projectName}}</h3>
+            <p class="resumen-proyecto">{{localProject.dateEnd}}</p>
+            <p class="resumen-proyecto">{{localProject.description}}</p>
+            <p class="resumen-proyecto">{{localProject.linkProject}}</p>
+        </div>
+        <!-- Modal agregar -->
+        <div class="modal fade" id="add-modal-project" role="dialog" tabindex="-1" aria-hidden="true"
+            aria-labelledby="label-modal-1">
+            <!-- Caja de diálogo -->
+            <div class="modal-dialog">
+                <!-- Contenido de la caja -->
+                <div class="modal-content">
+                    <!-- Encabezado de la caja -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">Agregar un Proyecto</h5>
+                        <button class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <!-- Cuerpo de la caja -->
+                    <form #addForm="ngForm" (ngSubmit)="onAddProject(addForm)">
+                        <div class="modal-body">
+                            <label for="projectName">Nombre del Proyecto</label>
+                            <input type="text" class="resumen" ngModel name="projectName" id="projectName" />
+                        </div>
+                        <div class="modal-body">
+                            <label for="imageUrl">Imagen</label>
+                            <input type="text" class="resumen" ngModel name="imageUrl" id="imageUrl" />
+                        </div>
+                        <div class="modal-body">
+                            <label for="dateEnd">Fecha de Finalización</label>
+                            <input type="date" class="resumen" ngModel name="dateEnd" id="dateEnd" />
+                        </div>
+                        <div class="modal-body">
+                            <label for="description">Descripción</label>
+                            <textarea ngModel name="description" id="description" class="form-control"
+                                placeholder="Descripción"></textarea>
+                        </div>
+                        <div class="modal-body">
+                            <label for="linkProject">Link del Proyecto</label>
+                            <input type="text" class="resumen" ngModel name="linkProject" id="linkProject" />
+                        </div>
+                        <!-- Pie de la caja -->
+                        <div class="modal-footer">
+                            <button type="button" id="add-project.form" class="btn btn-light"
+                                data-bs-dismiss="modal">Cancelar</button>
+                            <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary"
+                                data-bs-dismiss="modal">Aceptar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Modal editar -->
+        <div class="modal fade" id="edit-modal-project" role="dialog" tabindex="-1" aria-hidden="true"
+            aria-labelledby="edit-modal-header">
+            <!-- Caja de diálogo -->
+            <div class="modal-dialog">
+                <!-- Contenido de la caja -->
+                <div class="modal-content">
+                    <!-- Encabezado de la caja -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar Proyecto</h5>
+                        <button class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <!-- Cuerpo de la caja -->
+                    <form #updateForm="ngForm" (ngSubmit)="onAddProject(addForm)">
+                        <input type="hidden" ngModel="{{updateProject?.id}}" name="id" id="id" class="form-control" />
+                        <div class="modal-body">
+                            <label for="projectName">Nombre del Proyecto</label>
+                            <input type="text" class="resumen" ngModel="{{updateProject?.projectName}}"
+                                name="projectName" id="projectName" />
+                        </div>
+                        <div class="modal-body">
+                            <label for="imageUrl">Imagen</label>
+                            <input type="text" class="resumen" ngModel="{{updateProject?.imageUrl}}" name="imageUrl"
+                                id="imageUrl" />
+                        </div>
+                        <div class="modal-body">
+                            <label for="dateEnd">Fecha de Finalización</label>
+                            <input type="date" class="resumen" ngModel="{{updateProject?.dateEnd}}" name="dateEnd"
+                                id="dateEnd" />
+                        </div>
+                        <div class="modal-body">
+                            <label for="description">Descripción</label>
+                            <textarea ngModel name="description" id="description" class="form-control"
+                                placeholder="Descripción"></textarea>
+                        </div>
+                        <div class="modal-body">
+                            <label for="linkProject">Link del Proyecto</label>
+                            <input type="text" class="resumen" ngModel="{{updateProject?.linkProject}}"
+                                name="linkProject" id="linkProject" />
+                        </div>
+                        <!-- Pie de la caja -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                            <button (click)="onUpdateProject(updateForm.value)" type="button" class="btn btn-primary"
+                                data-bs-dismiss="modal">Aceptar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Modal borrar -->
+        <div class="modal fade" id="delete-modal-project" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModelLabel">Borrar Proyecto</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Está seguro que quire borrar {{deleteProject?.projectName}}</p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                            <button type="button" (click)="onDeleteProject(deleteProject.id)" class="btn btn-danger"
+                                data-bs-dismiss="modal">Si</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

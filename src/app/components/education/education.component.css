@@ -1,0 +1,20 @@
+.educacion .info .titulo {
+	color: #005385;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 40px;
+	margin-bottom: 30px;
+}
+
+.educacion .info .titulacion {
+	font-size: larger;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+
+.educacion .info .resumen-educacion {
+	margin-top: 0;
+	margin-bottom: 0;
+	letter-spacing: 1px;
+}
